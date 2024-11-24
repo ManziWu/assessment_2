@@ -16,7 +16,7 @@ Setup your repository by following these steps. In the terminal:
 
 > pip3 install -r requirements.txt
 
---> run `streamlit run Home.py` to confirm everything is working
+--> run `python -m streamlit run Home.py` to confirm everything is working
 
 > create .env file and add OPENAI_API_KEY="" with your API key
 
