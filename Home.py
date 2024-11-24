@@ -1,5 +1,6 @@
 __import__("pysqlite3")
 import sys
+import sqlite3
 sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
 
 import streamlit as st
@@ -10,8 +11,9 @@ from utilities.documents import read_document
 from utilities.layout import page_config
 
 page_config()
+#collection, client = get_or_create_persistent_chromadb_client_and_collection("legal docs collection")
 
-st.markdown("Preliminary Review of Intellectual Property License Agreement")
+st.markdown("<h1 style='font-size:32px;'>Preliminary Review of Intellectual Property License Agreement</h1>", unsafe_allow_html=True)
 
 if "scenario" not in st.session_state:
     st.session_state.scenario = None
@@ -151,4 +153,5 @@ if st.button("Determine Conclusion"):
 
     if st.session_state.response:
         st.write(f"Overall Assessment: {st.session_state.response}")
+
 
