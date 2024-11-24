@@ -39,6 +39,7 @@ if "sub_response_termination" not in st.session_state:
 st.session_state.scenario = st.text_area("Please enter/upload the content of the license agreement or relevant description:")
 # File uploader
 uploaded_file = st.file_uploader("Upload your document (PDF or DOCX):")
+document_content = ''
 if uploaded_file is not None:
     # Read the content of the uploaded document
     document_content = read_document(uploaded_file)
