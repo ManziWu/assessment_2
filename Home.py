@@ -13,7 +13,7 @@ from utilities.layout import page_config
 page_config()
 #collection, client = get_or_create_persistent_chromadb_client_and_collection("legal docs collection")
 
-st.markdown("<h1 style='font-size:32px;'>Preliminary Review of Intellectual Property License Agreement</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='font-size:36px;'>📜 **Preliminary Review of Intellectual Property License Agreement**</h1>", unsafe_allow_html=True)
 
 if "scenario" not in st.session_state:
     st.session_state.scenario = None
@@ -38,17 +38,17 @@ if "sub_response_termination" not in st.session_state:
     st.session_state.sub_response_termination = None
 
 # Input agreement content
-st.session_state.scenario = st.text_area("Please enter/upload the content of the license agreement or relevant description:")
+st.session_state.scenario = st.text_area("📝 **Please enter/upload the content of the license agreement or relevant description:**")
 # File uploader
-uploaded_file = st.file_uploader("Upload your document (PDF or DOCX):")
+uploaded_file = st.file_uploader("📂 **Upload your document (PDF or DOCX):**")
 document_content = ''
 if uploaded_file is not None:
     # Read the content of the uploaded document
     document_content = read_document(uploaded_file)
 
 # Scope of Authorization check
-st.subheader("1. Scope of Authorization")
-if st.button("Check Scope of Authorization"):
+st.markdown("<h2>1. 🔍 **Scope of Authorization**</h2>", unsafe_allow_html=True)
+if st.button("🔍 Check Scope of Authorization"):
     st.session_state.sub_response_scope = gpt4o_mini_inference(
         "You are an expert in intellectual property law.",
         f"""
@@ -61,8 +61,8 @@ if st.session_state.sub_response_scope:
     st.write(f"AI's assessment of the Scope of Authorization: {st.session_state.sub_response_scope}")
 
 # Authorization Duration check
-st.subheader("2. Authorization Duration")
-if st.button("Check Authorization Duration"):
+st.markdown("<h2>2. ⏳ **Authorization Duration**</h2>", unsafe_allow_html=True)
+if st.button("⏳ Check Authorization Duration"):
     st.session_state.sub_response_duration = gpt4o_mini_inference(
         "You are an expert in intellectual property law.",
         f"""
@@ -75,8 +75,8 @@ if st.session_state.sub_response_duration:
     st.write(f"AI's assessment of the Authorization Duration: {st.session_state.sub_response_duration}")
 
 # Usage Restrictions check
-st.subheader("3. Usage Restrictions")
-if st.button("Check Usage Restrictions"):
+st.markdown("<h2>3. 🚫 **Usage Restrictions**</h2>", unsafe_allow_html=True)
+if st.button("🚫 Check Usage Restrictions"):
     st.session_state.sub_response_restrictions = gpt4o_mini_inference(
         "You are an expert in intellectual property law.",
         f"""
@@ -89,8 +89,8 @@ if st.session_state.sub_response_restrictions:
     st.write(f"AI's assessment of the Usage Restrictions: {st.session_state.sub_response_restrictions}")
 
 # Payment Terms and License Fees check
-st.subheader("4. Payment Terms and License Fees")
-if st.button("Check Payment Terms and License Fees"):
+st.markdown("<h2>4. 💰 **Payment Terms and License Fees**</h2>", unsafe_allow_html=True)
+if st.button("💰 Check Payment Terms and License Fees"):
     st.session_state.sub_response_payment = gpt4o_mini_inference(
         "You are an expert in intellectual property law.",
         f"""
@@ -103,8 +103,8 @@ if st.session_state.sub_response_payment:
     st.write(f"AI's assessment of the Payment Terms and License Fees: {st.session_state.sub_response_payment}")
 
 # Intellectual Property Ownership and Usage check
-st.subheader("5. Intellectual Property Ownership and Usage")
-if st.button("Check Intellectual Property Ownership and Usage"):
+st.markdown("<h2>5. 📝 **Intellectual Property Ownership and Usage**</h2>", unsafe_allow_html=True)
+if st.button("📝 Check Intellectual Property Ownership and Usage"):
     st.session_state.sub_response_ownership = gpt4o_mini_inference(
         "You are an expert in intellectual property law.",
         f"""
@@ -117,8 +117,8 @@ if st.session_state.sub_response_ownership:
     st.write(f"AI's assessment of the Intellectual Property Ownership and Usage: {st.session_state.sub_response_ownership}")
 
 # Termination Terms check
-st.subheader("6. Termination Terms")
-if st.button("Check Termination Terms"):
+st.markdown("<h2>6. ❌ **Termination Terms**</h2>", unsafe_allow_html=True)
+if st.button("❌ Check Termination Terms"):
     st.session_state.sub_response_termination = gpt4o_mini_inference(
         "You are an expert in intellectual property law.",
         f"""
@@ -131,8 +131,8 @@ if st.session_state.sub_response_termination:
     st.write(f"AI's assessment of the Termination Terms: {st.session_state.sub_response_termination}")
 
 # Overall conclusion
-st.subheader("Overall Assessment")
-if st.button("Determine Conclusion"):
+st.markdown("<h2>🔍 **Overall Assessment**</h2>", unsafe_allow_html=True)
+if st.button("🔍 Determine Conclusion"):
     all_responses = [
         st.session_state.sub_response_scope,
         st.session_state.sub_response_duration,
