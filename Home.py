@@ -148,24 +148,26 @@ st.markdown("<h2> Overall Assessment</h2>", unsafe_allow_html=True)
 
 if st.button("🔍 Determine Conclusion"):
     all_responses = [
-        st.session_state.sub_response_scope,
-        st.session_state.sub_response_duration,
-        st.session_state.sub_response_restrictions,
-        st.session_state.sub_response_payment,
-        st.session_state.sub_response_ownership,
-        st.session_state.sub_response_termination,
+        st.session_state.get("sub_response_scope"),
+        st.session_state.get("sub_response_duration"),
+        st.session_state.get("sub_response_restrictions"),
+        st.session_state.get("sub_response_payment"),
+        st.session_state.get("sub_response_ownership"),
+        st.session_state.get("sub_response_termination"),
     ]
 
-    # If all elements are 'yes', the agreement is complete; otherwise, it is incomplete
-    if all(response == "yes" for response in all_responses if response is not None):
+    if any(response is None for response in all_responses):
+        st.session_state.response = "Please evaluate all clauses before determining the conclusion."
+    elif all("yes" in response.lower() for response in all_responses if response):
         st.session_state.response = "The agreement is complete"
-    elif any(response == "no" for response in all_responses if response is not None):
+    elif any("no" in response.lower() for response in all_responses if response):
         st.session_state.response = "The agreement is incomplete"
     else:
         st.session_state.response = "The status of the agreement is uncertain"
 
+    st.write(f"Overall Assessment: {st.session_state.response}")
 
-    if st.session_state.response:
-        st.write(f"Overall Assessment: {st.session_state.response}")
+
+
 
 
