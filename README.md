@@ -1,7 +1,7 @@
 # Preliminary Review of Intellectual Property License Agreement
 
 ## Deployed Application
-The application is deployed at the following URL: 
+The application is deployed at the following URL: https://homepy-bpmepguzgnbjajwfabz3zm.streamlit.app/
 
 ## How to Use
 1.Upload your intellectual property license agreement in PDF, DOCX, or plain text format, or paste the content directly into the input field.
