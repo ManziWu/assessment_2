@@ -1,4 +1,13 @@
-# LAWS90286 Template
+# Preliminary Review of Intellectual Property License Agreement
+
+## Deployed Application
+The application is deployed at the following URL: 
+
+## How to Use
+
+## Test Case
+
+## Test Artifacts
 
 ## Setup
 

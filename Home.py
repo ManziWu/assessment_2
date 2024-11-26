@@ -13,7 +13,7 @@ from utilities.layout import page_config
 page_config()
 #collection, client = get_or_create_persistent_chromadb_client_and_collection("legal docs collection")
 
-st.markdown("<h1 style='font-size:36px;'>📜 **Preliminary Review of Intellectual Property License Agreement**</h1>", unsafe_allow_html=True)
+st.title("📜 Preliminary Review of Intellectual Property License Agreement")
 
 if "scenario" not in st.session_state:
     st.session_state.scenario = None
@@ -47,7 +47,9 @@ if uploaded_file is not None:
     document_content = read_document(uploaded_file)
 
 # Scope of Authorization check
-st.markdown("<h2>1. 🔍 **Scope of Authorization**</h2>", unsafe_allow_html=True)
+
+st.markdown("<h2>1.  Scope of Authorization</h2>", unsafe_allow_html=True)
+
 if st.button("🔍 Check Scope of Authorization"):
     st.session_state.sub_response_scope = gpt4o_mini_inference(
         "You are an expert in intellectual property law.",
@@ -61,7 +63,9 @@ if st.session_state.sub_response_scope:
     st.write(f"AI's assessment of the Scope of Authorization: {st.session_state.sub_response_scope}")
 
 # Authorization Duration check
-st.markdown("<h2>2. ⏳ **Authorization Duration**</h2>", unsafe_allow_html=True)
+
+st.markdown("<h2>2. Authorization Duration</h2>", unsafe_allow_html=True)
+
 if st.button("⏳ Check Authorization Duration"):
     st.session_state.sub_response_duration = gpt4o_mini_inference(
         "You are an expert in intellectual property law.",
@@ -75,7 +79,9 @@ if st.session_state.sub_response_duration:
     st.write(f"AI's assessment of the Authorization Duration: {st.session_state.sub_response_duration}")
 
 # Usage Restrictions check
-st.markdown("<h2>3. 🚫 **Usage Restrictions**</h2>", unsafe_allow_html=True)
+
+st.markdown("<h2>3. Usage Restrictions</h2>", unsafe_allow_html=True)
+
 if st.button("🚫 Check Usage Restrictions"):
     st.session_state.sub_response_restrictions = gpt4o_mini_inference(
         "You are an expert in intellectual property law.",
@@ -89,7 +95,9 @@ if st.session_state.sub_response_restrictions:
     st.write(f"AI's assessment of the Usage Restrictions: {st.session_state.sub_response_restrictions}")
 
 # Payment Terms and License Fees check
-st.markdown("<h2>4. 💰 **Payment Terms and License Fees**</h2>", unsafe_allow_html=True)
+
+st.markdown("<h2>4. Payment Terms and License Fees</h2>", unsafe_allow_html=True)
+
 if st.button("💰 Check Payment Terms and License Fees"):
     st.session_state.sub_response_payment = gpt4o_mini_inference(
         "You are an expert in intellectual property law.",
@@ -103,7 +111,9 @@ if st.session_state.sub_response_payment:
     st.write(f"AI's assessment of the Payment Terms and License Fees: {st.session_state.sub_response_payment}")
 
 # Intellectual Property Ownership and Usage check
-st.markdown("<h2>5. 📝 **Intellectual Property Ownership and Usage**</h2>", unsafe_allow_html=True)
+
+st.markdown("<h2>5. Intellectual Property Ownership and Usage</h2>", unsafe_allow_html=True)
+
 if st.button("📝 Check Intellectual Property Ownership and Usage"):
     st.session_state.sub_response_ownership = gpt4o_mini_inference(
         "You are an expert in intellectual property law.",
@@ -117,8 +127,10 @@ if st.session_state.sub_response_ownership:
     st.write(f"AI's assessment of the Intellectual Property Ownership and Usage: {st.session_state.sub_response_ownership}")
 
 # Termination Terms check
-st.markdown("<h2>6. ❌ **Termination Terms**</h2>", unsafe_allow_html=True)
-if st.button("❌ Check Termination Terms"):
+
+st.markdown("<h2>6. Termination Terms</h2>", unsafe_allow_html=True)
+
+if st.button("🌼 Check Termination Terms"):
     st.session_state.sub_response_termination = gpt4o_mini_inference(
         "You are an expert in intellectual property law.",
         f"""
@@ -131,7 +143,9 @@ if st.session_state.sub_response_termination:
     st.write(f"AI's assessment of the Termination Terms: {st.session_state.sub_response_termination}")
 
 # Overall conclusion
-st.markdown("<h2>🔍 **Overall Assessment**</h2>", unsafe_allow_html=True)
+
+st.markdown("<h2> Overall Assessment</h2>", unsafe_allow_html=True)
+
 if st.button("🔍 Determine Conclusion"):
     all_responses = [
         st.session_state.sub_response_scope,
